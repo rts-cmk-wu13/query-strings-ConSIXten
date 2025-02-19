@@ -2,7 +2,13 @@ let mainElm = document.createElement("main");
 document.querySelector("#root").append(mainElm);
 
 let headerElm = document.createElement("header");
-headerElm.innerHTML = `<h1>Apartments for rent</h1>`;
+headerElm.innerHTML = `
+<h1 class="header__headline no-columns">Apartments for rent</h1>
+            <div>
+                <label for="switch">Dark Mode</label>
+                <input type="checkbox" switch name="switch" id="switch">
+            </div>
+`;
 mainElm.append(headerElm);
 
 // Load likede destinationer fra localStorage
@@ -18,10 +24,13 @@ fetch("/data/destinations.json")
                     <img src="/img/${image}" alt="">
                 </figure>
                 <div class="card__nav">
-                    <img src="like.png" class="card__nav--icon" data-id="${id}">
+                <img src="like.png" class="card__nav--icon" data-id="${id}">
                     <a class="card__nav--link" href="destination.html?id=${id}">MORE</a>
                 </div>
-            </div>`).join("");
+            </div>
+            `
+
+        ).join("");
         mainElm.append(sectionElm);
 
         // Vælg alle ikoner og tilføjer eventlistener

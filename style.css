@@ -4,13 +4,31 @@
     box-sizing: border-box;
 }
 
-/* html{
-    font-family: Arial, Helvetica, sans-serif;
-} */
+:root{
+    color-scheme: light dark;   
+    --dark-color: hsl(0 0% 10%);
+    --light-color: hsl(0 0% 97%);
+}
+
+[data-dark ="true"] {
+    color-scheme: dark;
+}
+[data-dark ="false"] {
+    color-scheme: light;
+}
+
+html, input, textarea{
+    color: light-dark(var(--dark-color), var(--light-color));
+    background-color: light-dark(var(--light-color), var(--dark-color));
+}
 
 img {
     width: 100%;
     height: 100%;
+}
+
+li{
+    list-style: none;
 }
 
 #root{
@@ -81,7 +99,7 @@ a{
 
 .half{
     grid-column: span 2;
-    margin-inline-end: 2rem;
+    /* margin-inline-end: 2rem; */
 }
 
 .section{
@@ -92,17 +110,52 @@ a{
     margin-top: 2rem;
 }
 
+/*-------header-landingpage------*/
+.header__headline{
+    margin-left: 1rem;
+}
+/*-------header-destination------*/
+.header{
+    height: 5rem;
+    width: 100%;
+    /* background-color: #CEF9FF; */
+    display: block;
+    margin-top: 1.5rem;
+}
+
+.header__nav{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: space-evenly;
+    margin-inline: 1rem;
+}
+
+.header__nav--list{
+    display: flex;
+    gap: 2.5rem;
+}
+
 /*------- cards ------*/
 .card{
     width: 18rem;
     height: 22rem;
     background-color: #CEF9FF;
-    margin: 0.5rem;
+    margin: 1rem;
+    border-radius: 1rem;
 }
 
 .card__img{
     width: 18rem;
     height: 18rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    overflow: hidden;
+    /* padding: 1rem; */
+}
+
+.card:hover{
+    transform: scale(1.1);
 }
 
 .card__nav{
@@ -123,20 +176,19 @@ a{
 }
 
 /*-------info site ---------*/
+.info__site{
+    margin: 1rem;
+}
 
 .info__site--img{
-    width: 44.5rem;
+    width: 100%;
     height: 52rem;
     margin-block: 1rem;
-    position: relative;
 }
 
 .info__site--favorite{
    display: flex;
    gap: 0.25rem;
-   position: absolute;
-   top: 5%;
-   right: 52%;
    align-items: center;
 }
 
@@ -154,7 +206,7 @@ a{
 /*-------liked destinations---------*/
 
 .card__nav--icon.liked {
-    filter: brightness(0) saturate(100%) invert(39%) sepia(95%) saturate(450%) hue-rotate(-50deg);
+    filter: brightness(0) saturate(100%) invert(35%) sepia(95%) saturate(650%) hue-rotate(-50deg);
 }
 
 .card__nav--icon {
